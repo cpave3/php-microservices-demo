@@ -1,0 +1,39 @@
+title PHP Microservice Authentication Patterns
+
+participant User as u
+participant Gateway as g
+participant Microservice 1 as 1
+participant Microservice 2 as 2
+participant Microservice 3 as 3
+participant Microservice 4 as 4
+participant Okta as o
+
+note left of u: Microservice 1 and 4:
+u->g: GET /service1
+g->o: validate User's JWT
+o-->g: valid
+g->1: forward request to service
+1->4: GET /private-service
+4-->1: response
+1-->g: response
+g-->u: response
+
+note left of u: Microservice 2:
+u->g: GET /service2
+g->o: validate User's JWT
+o-->g: valid
+g->2: forward request to service
+2->o: Validate JWT with specific scope
+o-->2: valid
+2-->g: response
+g-->u: response
+
+note left of u: Microservice 3:
+u->g: GET /service3
+g->o: validate User's JWT
+o-->g: valid
+g->3: forward request to service
+3->o: Remote introspection to detect revoked tokens
+o-->3: not revoked, valid
+3-->g: response
+g-->u: response
