@@ -17,3 +17,15 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/service1', function(Request $request) {
+    return \Illuminate\Support\Facades\Http::get('http://microservice-a/api/service');
+});
+
+Route::get('/service2', function(Request $request) {
+    return \Illuminate\Support\Facades\Http::get('http://microservice-b/api/service');
+});
+
+Route::get('/service3', function(Request $request) {
+    return \Illuminate\Support\Facades\Http::get('http://microservice-c/api/service');
+});

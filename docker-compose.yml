@@ -1,0 +1,82 @@
+version: '2.1'
+networks:
+  php_microservices_demo:
+    external: true
+services:
+  api_gateway:
+    build:
+      context: ./api-gateway/vendor/laravel/sail/runtimes/8.0
+      dockerfile: Dockerfile
+      args:
+        WWWGROUP: '${WWWGROUP}'
+    image: sail-8.0/app
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    ports:
+      - '8080:80'
+    environment:
+      WWWUSER: '${WWWUSER}'
+    volumes:
+      - './api-gateway/:/var/www/html'
+    networks:
+      - php_microservices_demo
+  microservice-a:
+    build:
+      context: ./microservice-a/vendor/laravel/sail/runtimes/8.0
+      dockerfile: Dockerfile
+      args:
+        WWWGROUP: '${WWWGROUP}'
+    image: sail-8.0/app
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    environment:
+      WWWUSER: '${WWWUSER}'
+    volumes:
+      - './microservice-a/:/var/www/html'
+    networks:
+      - php_microservices_demo
+  microservice-b:
+    build:
+      context: ./microservice-b/vendor/laravel/sail/runtimes/8.0
+      dockerfile: Dockerfile
+      args:
+        WWWGROUP: '${WWWGROUP}'
+    image: sail-8.0/app
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    environment:
+      WWWUSER: '${WWWUSER}'
+    volumes:
+      - './microservice-b/:/var/www/html'
+    networks:
+      - php_microservices_demo
+  microservice-c:
+    build:
+      context: ./microservice-c/vendor/laravel/sail/runtimes/8.0
+      dockerfile: Dockerfile
+      args:
+        WWWGROUP: '${WWWGROUP}'
+    image: sail-8.0/app
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    environment:
+      WWWUSER: '${WWWUSER}'
+    volumes:
+      - './microservice-c/:/var/www/html'
+    networks:
+      - php_microservices_demo
+  microservice-d:
+    build:
+      context: ./microservice-d/vendor/laravel/sail/runtimes/8.0
+      dockerfile: Dockerfile
+      args:
+        WWWGROUP: '${WWWGROUP}'
+    image: sail-8.0/app
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    environment:
+      WWWUSER: '${WWWUSER}'
+    volumes:
+      - './microservice-d/:/var/www/html'
+    networks:
+      - php_microservices_demo
