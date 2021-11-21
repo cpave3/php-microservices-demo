@@ -23,7 +23,8 @@ Route::get('/service1', function(Request $request) {
 });
 
 Route::get('/service2', function(Request $request) {
-    return \Illuminate\Support\Facades\Http::get('http://microservice-b/api/service');
+    $bearer = $request->bearerToken();
+    return \Illuminate\Support\Facades\Http::withToken($bearer)->get('http://microservice-b/api/service');
 });
 
 Route::get('/service3', function(Request $request) {

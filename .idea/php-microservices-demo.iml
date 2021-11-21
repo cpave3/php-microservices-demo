@@ -119,6 +119,18 @@
       <excludeFolder url="file://$MODULE_DIR$/api-gateway/vendor/sebastian/global-state" />
       <excludeFolder url="file://$MODULE_DIR$/api-gateway/vendor/sebastian/code-unit-reverse-lookup" />
       <excludeFolder url="file://$MODULE_DIR$/api-gateway/vendor/graham-campbell/result-type" />
+      <excludeFolder url="file://$MODULE_DIR$/api-gateway/vendor/firebase/php-jwt" />
+      <excludeFolder url="file://$MODULE_DIR$/api-gateway/vendor/bretterer/iso_duration_converter" />
+      <excludeFolder url="file://$MODULE_DIR$/api-gateway/vendor/clue/stream-filter" />
+      <excludeFolder url="file://$MODULE_DIR$/api-gateway/vendor/okta/jwt-verifier" />
+      <excludeFolder url="file://$MODULE_DIR$/api-gateway/vendor/php-http/curl-client" />
+      <excludeFolder url="file://$MODULE_DIR$/api-gateway/vendor/php-http/client-common" />
+      <excludeFolder url="file://$MODULE_DIR$/api-gateway/vendor/php-http/message-factory" />
+      <excludeFolder url="file://$MODULE_DIR$/api-gateway/vendor/php-http/httplug" />
+      <excludeFolder url="file://$MODULE_DIR$/api-gateway/vendor/php-http/message" />
+      <excludeFolder url="file://$MODULE_DIR$/api-gateway/vendor/php-http/discovery" />
+      <excludeFolder url="file://$MODULE_DIR$/api-gateway/vendor/php-http/promise" />
+      <excludeFolder url="file://$MODULE_DIR$/api-gateway/vendor/symfony/options-resolver" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
