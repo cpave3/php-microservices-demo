@@ -19,15 +19,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/service1', function(Request $request) {
-    return \Illuminate\Support\Facades\Http::get('http://microservice-a/api/service');
+    $response = \Illuminate\Support\Facades\Http::get('http://microservice-a/api/service');
+    return new \Illuminate\Http\Response($response->body(), $response->status());
 });
 
 Route::get('/service2', function(Request $request) {
     $bearer = $request->bearerToken();
-    return \Illuminate\Support\Facades\Http::withToken($bearer)->get('http://microservice-b/api/service');
+    $response = \Illuminate\Support\Facades\Http::withToken($bearer)->get('http://microservice-b/api/service');
+    return new \Illuminate\Http\Response($response->body(), $response->status());
 });
 
 Route::get('/service3', function(Request $request) {
     $bearer = $request->bearerToken();
-    return \Illuminate\Support\Facades\Http::withToken($bearer)->get('http://microservice-c/api/service');
+    $response = \Illuminate\Support\Facades\Http::withToken($bearer)->get('http://microservice-c/api/service');
+    return new \Illuminate\Http\Response($response->body(), $response->status());
 });
